@@ -1,20 +1,19 @@
 import { MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
 import './App.css';
-import { theme } from './utils/theme';
+import { theme, darkTheme } from './utils/theme';
 import Pomodoro from './pages/Pomodoro';
+import { useTypedSelector } from './redux/hooks/useTypeSelector';
 
-// const App: FC = () => <div>
-//   <Box>
-//     <Typography>Pomodoro</Typography>
-//   </Box>
-// </div>
+const App: React.FC = () => {
+  const appTheme = useTypedSelector((state) => state?.app?.appTheme);
+  console.log(appTheme);
 
-function App() {
   return (
-    <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={appTheme === 'light' ? theme : darkTheme}>
         <Pomodoro />
     </MuiThemeProvider>
   )
 }
+
 export default App;

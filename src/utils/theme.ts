@@ -14,13 +14,15 @@ interface IThemeOptions extends ThemeOptions {
 export const theme = createTheme({
   palette: {
     stellaColor: { main: '#000' },
-    bgColor: { main: '#FAFAFA' }
+    bgColor: { main: '#161932' },
+    textColor: { main: '#FFF' },
   },
 } as unknown as IThemeOptions);
 
 export const darkTheme = createTheme({
   palette: {
     stellaColor: { main: '#FAFAFA' },
-    bgColor: { main: '#000' }
+    bgColor: { main: '#FAFAFA' },
+    textColor: { main: '#FFF' },
   },
 } as unknown as IThemeOptions);

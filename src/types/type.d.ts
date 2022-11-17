@@ -5,7 +5,7 @@ interface IApp {
  
   type AppAction = {
     type: string
-    data: IApp
+    data: any
   }
 
   interface MuiTheme {

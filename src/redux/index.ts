@@ -1,19 +1,5 @@
-import { applyMiddleware, createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import reduxReducer from './reducers/combineReducer';
+import reducers from './reducers/combineReducer';
 
-// const store: Store<IApp, AppAction> & {
-//     dispatch: DispatchType
-//   } = createStore(reduxReducer, applyMiddleware(thunk))
-
-// export {store};
-
-const initialState = {};
-
-const store = createStore(
-  reduxReducer,
-  initialState,
-  applyMiddleware(thunk)
-);
-
-export { store };
+export const store = createStore(reducers, {}, applyMiddleware(thunk));

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
    flexDirection: 'column',
   },
   headerTxt: {
-    color: theme.palette.stellaColor.main,
+    color: theme.palette.textColor.main,
   },
   timerBox: {
     marginTop: '20px',
