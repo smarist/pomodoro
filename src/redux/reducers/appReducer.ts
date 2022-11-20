@@ -1,7 +1,7 @@
 import { SET_APP_THEME, IS_LOADING } from '../actionTypes/appActionType';
 
 const initialState: IApp = {
-  appTheme: 'dark',
+  appTheme: 'light',
   isLoading: true, 
 }
 // eslint-disable-next-line
