@@ -4,7 +4,7 @@ import { ITheme } from '../../types/theme';
 const useStyles = makeStyles((theme: ITheme) => ({
   min: {
    backgroundColor: theme.palette.bgColor.main,
-   height: '100%',
+   height: '95vh',
    overFlow: 'hidden !important',
    display: 'flex',
    justifyContent: 'center',
@@ -15,10 +15,13 @@ const useStyles = makeStyles((theme: ITheme) => ({
     color: theme.palette.textColor.main,
   },
   timerBox: {
-    marginTop: '20px',
-    height: '50vh',
+    // marginTop: '160px',
+    height: '50%',
     border: '2px solid red',
     width: '60%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   settingsBox: {
     marginTop: '20px',

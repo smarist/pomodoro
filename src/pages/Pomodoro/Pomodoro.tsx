@@ -3,6 +3,7 @@ import useStyles from './Pomodoro.styles'
 import { ReactComponent as SettingsIcon } from '../../Resources/settings - icon.svg'
 import { Box, Typography } from '@material-ui/core'
 import Modal from '../../components/Modal';
+import ProgressCircle from '../../components/ProgressCircle';
 
 
 const Pomodoro = () => {
@@ -14,7 +15,9 @@ const Pomodoro = () => {
   return (
     <Box className={classes.min}>
       <Typography className={classes.headerTxt}>Pomodoro</Typography>
-      <Box className={classes.timerBox}></Box>
+      <Box className={classes.timerBox}>
+        <ProgressCircle />
+      </Box>
       <Box className={classes.settingsBox} onClick={handleOpen}>
          <SettingsIcon />
       </Box>
