@@ -5,11 +5,10 @@ import Box from '@material-ui/core/Box';
 import { useAppSelector } from '../../redux/hooks/useTypeSelector';
 
 function CircularProgressWithLabel(props: CircularProgressProps & { value: number }) {
-  const appColor = useAppSelector((state) => state?.settings?.appColor);
+  const { appColor, appFont } = useAppSelector((state) => state?.settings);
 
   return (
     <Box style={{ 
-        border: '2px solid red',
          height: '100%',
          display: 'flex',
          width: '100%',
@@ -22,7 +21,6 @@ function CircularProgressWithLabel(props: CircularProgressProps & { value: numbe
        thickness={8}
         {...props}
          style={{ 
-            border: '2px solid white',
              color: appColor,
              display: 'flex',
              justifyContent: 'center',
@@ -35,7 +33,11 @@ function CircularProgressWithLabel(props: CircularProgressProps & { value: numbe
         <Typography
          variant="caption"
           component="div"
-          style={{ fontSize: '36px', color: '#FFF' }}>
+          style={{ 
+            fontSize: '36px',
+             color: '#FFF',
+             fontFamily: appFont,
+              }}>
             {`${Math.round(
           props.value,
         )}%`}</Typography>

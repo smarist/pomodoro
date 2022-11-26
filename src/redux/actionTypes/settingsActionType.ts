@@ -1,2 +1,2 @@
 export const SET_APP_COLOR = 'SET_APP_COLOR';
-export const IS_LOADING = 'IS_LOADING';
+export const SET_APP_FONT = 'SET_APP_FONT';

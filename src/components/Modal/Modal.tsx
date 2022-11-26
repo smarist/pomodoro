@@ -27,8 +27,19 @@ interface IHandleModalProps {
 const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
   //   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
-  const { appColor, colorType, onClick1, onClick2, onClick3, onApply } =
-    useSettings();
+  const {
+    appColor,
+    appFont,
+    colorType,
+    fontType,
+    onClick1,
+    onClick2,
+    onClick3,
+    onApply,
+    onFont1,
+    onFont2,
+    onFont3,
+  } = useSettings();
 
   const classes = useStyles({ appColor });
   const handleClose = () => {
@@ -64,9 +75,39 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
         <Box display="flex" flexDirection="row" className={classes.boxx1}>
           <Typography>FONT</Typography>
           <Box display="flex" flexDirection="row" className={classes.fontBox}>
-            <Box className={classes.fontFamily}>Aa</Box>
-            <Box className={classes.fontFamily}>Aa</Box>
-            <Box className={classes.fontFamily}>Aa</Box>
+            <Box
+              onClick={onFont1}
+              className={`${classes.fontFamily} ${
+                fontType === "san-serif" ? "active" : ""
+              }`}
+              style={{ 
+                fontFamily: "san-serif",
+               }}
+            >
+              Aa
+            </Box>
+            <Box
+              onClick={onFont2}
+              className={`${classes.fontFamily} ${
+                fontType === "cursive" ? "active" : ""
+              }`}
+              style={{ 
+                fontFamily: "cursive",
+               }}
+            >
+              Aa
+            </Box>
+            <Box
+              onClick={onFont3}
+              className={`${classes.fontFamily} ${
+                fontType === "serif" ? "active" : ""
+              }`}
+              style={{ 
+                fontFamily: "serif",
+               }}
+            >
+              Aa
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -90,7 +131,10 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
         <Box
           className={classes.btn}
           onClick={onApply}
-          style={{ backgroundColor: appColor }}
+          style={{ 
+            backgroundColor: appColor,
+            fontFamily: appFont,
+           }}
         >
           Apply
         </Box>

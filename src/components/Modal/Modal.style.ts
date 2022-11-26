@@ -91,8 +91,9 @@ const useStyles = makeStyles((theme: ITheme) => ({
     borderRadius: '50%',
     padding: '5px',
     cursor: 'pointer',
-    '& active': {
+    '&.active': {
       backgroundColor: '#303C479e',
+      color: '#FFF',
     },
   },
   btnBox: {
