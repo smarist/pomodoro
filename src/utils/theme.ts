@@ -14,7 +14,7 @@ interface IThemeOptions extends ThemeOptions {
 export const theme = createTheme({
   palette: {
     stellaColor: { main: '#000' },
-    bgColor: { main: '#161932' },
+    bgColor: { main: '#1E2140' },
     textColor: { main: '#FFF' },
   },
 } as unknown as IThemeOptions);

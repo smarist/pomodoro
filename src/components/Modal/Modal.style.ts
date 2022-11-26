@@ -43,9 +43,9 @@ const useStyles = makeStyles((theme: ITheme) => ({
   input: {
     backgroundColor: "#F4F5F9",
     border: "none",
-    height: '35px !important',
+    height: '30px !important',
     width: '90%',
-    padding: '2px',
+    padding: '10px',
     borderRadius: '10px',
   },
   box: {
@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
     padding: '5px',
     cursor: 'pointer',
     '&.orange': {
-      backgroundColor: '#FD6920',
+      backgroundColor: '#FF716E',
     },
     '&.blue': {
       backgroundColor: '#87CEFA',

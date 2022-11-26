@@ -3,6 +3,7 @@ import Modal from "@material-ui/core/Modal";
 import useStyles from "./Modal.style";
 import { Box, Typography } from "@material-ui/core";
 import useSettings from "./hooks/useSettings";
+import { useAppSelector } from "../../redux/hooks/useTypeSelector";
 // import CheckIcon from '@mui/icons-material/Check';
 
 function rand() {
@@ -27,19 +28,11 @@ interface IHandleModalProps {
 const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
   //   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
-  const {
-    appColor,
-    appFont,
-    colorType,
-    fontType,
-    onClick1,
-    onClick2,
-    onClick3,
-    onApply,
-    onFont1,
-    onFont2,
-    onFont3,
-  } = useSettings();
+  const { appColor, appFont, longTime, shortTime, pomodoro } = useAppSelector(
+    (state) => state?.settings
+  );
+  const { colorType, fontType, onClick1, onClick2, onClick3, onApply, onFont1, onFont2, onFont3 } =
+    useSettings();
 
   const classes = useStyles({ appColor });
   const handleClose = () => {
@@ -59,15 +52,15 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
         <Box display="flex" flexDirection="row" className={classes.boxx}>
           <Box display="flex" flexDirection="column" className={classes.box}>
             <Typography>pomodoro</Typography>
-            <input type="number" className={classes.input} />
+            <input type="number" className={classes.input} value={pomodoro} />
           </Box>
           <Box display="flex" flexDirection="column" className={classes.box}>
             <Typography>short break</Typography>
-            <input type="number" className={classes.input} />
+            <input type="number" className={classes.input} value={shortTime} />
           </Box>
           <Box display="flex" flexDirection="column" className={classes.box}>
             <Typography>long break</Typography>
-            <input type="number" className={classes.input} />
+            <input type="number" className={classes.input} value={longTime} />
           </Box>
         </Box>
       </Box>
@@ -80,9 +73,9 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
               className={`${classes.fontFamily} ${
                 fontType === "san-serif" ? "active" : ""
               }`}
-              style={{ 
+              style={{
                 fontFamily: "san-serif",
-               }}
+              }}
             >
               Aa
             </Box>
@@ -91,9 +84,9 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
               className={`${classes.fontFamily} ${
                 fontType === "cursive" ? "active" : ""
               }`}
-              style={{ 
+              style={{
                 fontFamily: "cursive",
-               }}
+              }}
             >
               Aa
             </Box>
@@ -102,9 +95,9 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
               className={`${classes.fontFamily} ${
                 fontType === "serif" ? "active" : ""
               }`}
-              style={{ 
+              style={{
                 fontFamily: "serif",
-               }}
+              }}
             >
               Aa
             </Box>
@@ -116,7 +109,7 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
           <Typography>COLOR</Typography>
           <Box display="flex" flexDirection="row" className={classes.fontBox}>
             <Box onClick={onClick1} className={`${classes.color}  ${"orange"}`}>
-              {colorType === "#FD6920" ? "=" : ""}
+              {colorType === "#FF716E" ? "=" : ""}
             </Box>
             <Box onClick={onClick2} className={`${classes.color} ${"blue"} `}>
               {colorType === "#87CEFA" ? "=" : ""}
@@ -131,10 +124,10 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
         <Box
           className={classes.btn}
           onClick={onApply}
-          style={{ 
+          style={{
             backgroundColor: appColor,
             fontFamily: appFont,
-           }}
+          }}
         >
           Apply
         </Box>

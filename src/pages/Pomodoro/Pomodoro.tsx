@@ -4,6 +4,7 @@ import { ReactComponent as SettingsIcon } from '../../Resources/settings - icon.
 import { Box, Typography } from '@material-ui/core'
 import Modal from '../../components/Modal';
 import ProgressCircle from '../../components/ProgressCircle';
+import TimeBar from '../../components/TimeBar';
 
 
 const Pomodoro = () => {
@@ -15,6 +16,7 @@ const Pomodoro = () => {
   return (
     <Box className={classes.min}>
       <Typography className={classes.headerTxt}>Pomodoro</Typography>
+      <TimeBar />
       <Box className={classes.timerBox}>
         <ProgressCircle />
       </Box>

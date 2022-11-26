@@ -19,6 +19,10 @@ interface IApp {
   interface ISettings {
     appColor: string
     appFont: string,
+    longTime: number,
+    shortTime: number,
+    pomodoro: number,
+    timeType: string,
   }
 
   type DispatchType = (args: AppAction) => AppAction;

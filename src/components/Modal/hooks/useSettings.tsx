@@ -6,16 +6,17 @@ import {
 import { setAppColor, setAppFont } from "../../../redux/actions/settingsAction";
 
 export default function useSettings() {
-  const { appColor, appFont } = useAppSelector((state) => state?.settings);
-  console.log(appColor);
+  const { appColor, appFont, longTime, shortTime, pomodoro } = useAppSelector(
+    (state) => state?.settings
+  );
   // const dispatch: Dispatch<any> = useDispatch()
   const reduxDispatch = useAppDispatch();
 
-  const [colorType, setColorType] = useState(appColor);
-  const [fontType, setFontType] = useState(appFont);
+  const [colorType, setColorType] = useState<string>(appColor);
+  const [fontType, setFontType] = useState<string>(appFont);
 
   function onClick1() {
-    setColorType("#FD6920");
+    setColorType("#FF716E");
   }
 
   function onClick2() {
@@ -23,7 +24,7 @@ export default function useSettings() {
   }
 
   function onClick3() {
-    setFontType("#BA55D3");
+    setColorType("#BA55D3");
   }
 
   function onFont1() {
@@ -43,8 +44,6 @@ export default function useSettings() {
     setAppFont(fontType)(reduxDispatch);
   }
   return {
-    appColor,
-    appFont,
     colorType,
     fontType,
     onClick1,
