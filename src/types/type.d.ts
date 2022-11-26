@@ -16,4 +16,8 @@ interface IApp {
     }
   }
 
+  interface ISettings {
+    appColor: string
+  }
+
   type DispatchType = (args: AppAction) => AppAction;

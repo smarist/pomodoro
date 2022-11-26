@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import appReducer from './appReducer';
+import settingsReducer from './settingsReducer';
 
 const reducers = combineReducers({
   app: appReducer,
+  settings: settingsReducer,
   });
   
   export default reducers;
