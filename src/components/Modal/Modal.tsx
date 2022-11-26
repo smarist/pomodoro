@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "@material-ui/core/Modal";
 import useStyles from "./Modal.style";
 import { Box, Typography } from "@material-ui/core";
+import useSettings from "./hooks/useSettings";
 // import CheckIcon from '@mui/icons-material/Check';
 
 function rand() {
@@ -24,10 +25,12 @@ interface IHandleModalProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
-  const classes = useStyles();
   //   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
+  const { appColor, colorType, onClick1, onClick2, onClick3, onApply } =
+    useSettings();
 
+  const classes = useStyles({ appColor });
   const handleClose = () => {
     setOpen(false);
   };
@@ -71,14 +74,26 @@ const SimpleModal: React.FC<IHandleModalProps> = ({ open, setOpen }) => {
         <Box display="flex" flexDirection="row" className={classes.boxx2}>
           <Typography>COLOR</Typography>
           <Box display="flex" flexDirection="row" className={classes.fontBox}>
-            <Box className={classes.fontFamily}>=</Box>
-            <Box className={classes.fontFamily}>=</Box>
-            <Box className={classes.fontFamily}>=</Box>
+            <Box onClick={onClick1} className={`${classes.color}  ${"orange"}`}>
+              {colorType === "#FD6920" ? "=" : ""}
+            </Box>
+            <Box onClick={onClick2} className={`${classes.color} ${"blue"} `}>
+              {colorType === "#87CEFA" ? "=" : ""}
+            </Box>
+            <Box onClick={onClick3} className={`${classes.color} ${"purple"} `}>
+              {colorType === "#BA55D3" ? "=" : ""}
+            </Box>
           </Box>
         </Box>
       </Box>
       <Box className={classes.btnBox}>
-        <Box className={classes.btn}>Apply</Box>
+        <Box
+          className={classes.btn}
+          onClick={onApply}
+          style={{ backgroundColor: appColor }}
+        >
+          Apply
+        </Box>
       </Box>
     </Box>
   );

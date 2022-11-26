@@ -2,10 +2,10 @@ import { MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
 import { theme, darkTheme } from './utils/theme';
 import Pomodoro from './pages/Pomodoro';
-import { useTypedSelector } from './redux/hooks/useTypeSelector';
+import { useAppSelector } from './redux/hooks/useTypeSelector';
 
 const App: React.FC = () => {
-  const appTheme = useTypedSelector((state) => state?.app?.appTheme);
+  const appTheme = useAppSelector((state) => state?.app?.appTheme);
   console.log(appTheme);
 
   return (

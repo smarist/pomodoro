@@ -2,8 +2,11 @@ import React from 'react';
 import CircularProgress, { CircularProgressProps } from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { useAppSelector } from '../../redux/hooks/useTypeSelector';
 
 function CircularProgressWithLabel(props: CircularProgressProps & { value: number }) {
+  const appColor = useAppSelector((state) => state?.settings?.appColor);
+
   return (
     <Box style={{ 
         border: '2px solid red',
@@ -20,7 +23,7 @@ function CircularProgressWithLabel(props: CircularProgressProps & { value: numbe
         {...props}
          style={{ 
             border: '2px solid white',
-             color: "red",
+             color: appColor,
              display: 'flex',
              justifyContent: 'center',
              alignItems: 'center',

@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
     boxShadow: theme.shadows[5],
     // padding: theme.spacing(2, 4, 3),
     [theme.breakpoints.down('sm')]: {
-      width: '90%',
+      width: '85%',
       height: 420,
     },
     [theme.breakpoints.up('md')]: {
@@ -85,17 +85,22 @@ const useStyles = makeStyles((theme: ITheme) => ({
     marginTop: '-7px',
   },
   fontFamily: {
-    backgroundColor: 'red',
+    backgroundColor: '#F4F5F9',
     width: '20px',
     height: '20px',
     borderRadius: '50%',
     padding: '5px',
+    cursor: 'pointer',
+    '& active': {
+      backgroundColor: '#303C479e',
+    },
   },
   btnBox: {
     display: 'flex',
     justifyContent: 'center',
     alignContent: 'center',
     marginBottom: '-140px',
+    marginTop: '30px',
   },
   btn: {
     borderRadius: '20px',
@@ -103,11 +108,28 @@ const useStyles = makeStyles((theme: ITheme) => ({
     color: '#FFF',
     height: '10px',
     padding: '5px 20px 20px',
-    backgroundColor: 'red',
+    // backgroundColor: ({appColor}) => (appColor),
     display: 'flex',
     justifyContent: 'center',
     alignContent: 'center',
     cursor: 'pointer',
+    indexZ: 1, 
+  },
+  color: {
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%',
+    padding: '5px',
+    cursor: 'pointer',
+    '&.orange': {
+      backgroundColor: '#FD6920',
+    },
+    '&.blue': {
+      backgroundColor: '#87CEFA',
+    },
+    '&.purple': {
+      backgroundColor: '#BA55D3',
+    },
   },
 }));
 
