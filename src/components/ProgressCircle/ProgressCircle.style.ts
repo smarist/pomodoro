@@ -32,6 +32,13 @@ const useStyles = makeStyles((theme: ITheme) => ({
     backgroundColor: '#151A30',
     position: 'absolute',
   },
+  actBtn: {
+    cursor: 'pointer !important',
+    color: '#FFF',
+    marginBottom: '-15px',
+    padding: '6px',
+    fontSize: '18px',
+  },
 }));
 
 export default useStyles;

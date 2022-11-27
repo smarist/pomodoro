@@ -19,10 +19,17 @@ interface IApp {
   interface ISettings {
     appColor: string
     appFont: string,
-    longTime: number,
-    shortTime: number,
-    pomodoro: number,
-    timeType: string,
+    longTime: number | string | any,
+    shortTime: number | string | any,
+    pomodoro: number | string | any,
+    mode: string,
+    minutes: any,
+    seconds: number,
+    hasStarted: boolean,
+    timerDidEnd: boolean,
+    pause: boolean,
+    startingMinutes: number,
+    startingSeconds: number,
   }
 
   type DispatchType = (args: AppAction) => AppAction;
